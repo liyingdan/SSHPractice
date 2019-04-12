@@ -1,0 +1,30 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SSHProject:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SSHProject_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SSHProject/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SSHProject" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="asm-5.2" />
+          <element id="library" level="project" name="com.springsource.com.mchange.v2.c3p0-0.9.1.2" />
+          <element id="library" level="project" name="druid-1.0.15" />
+          <element id="library" level="project" name="hamcrest-core-1.3" />
+          <element id="library" level="project" name="junit-4.12" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.7-bin" />
+          <element id="library" level="project" name="spring-aop-5.0.7.RELEASE" />
+          <element id="library" level="project" name="struts2-spring-plugin-2.5.16" />
+          <element id="library" level="project" name="dom4j-1.6.1" />
+          <element id="library" level="project" name="mchange-commons-java-0.2.11" />
+          <element id="library" level="project" name="javassist-3.22.0-GA" />
+          <element id="library" level="project" name="spring-orm-5.0.7.RELEASE" />
+          <element id="library" level="project" name="log4j-core-2.10.0" />
+          <element id="library" level="project" name="log4j-api-2.10.0" />
+          <element id="library" level="project" name="javassist-3.20.0-GA" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

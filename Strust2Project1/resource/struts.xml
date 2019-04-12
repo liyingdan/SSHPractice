@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+    <!--<package name="struts" extends="struts-default" >
+
+        <action name="hello" class="com.lyd.struts2.HelloAction">
+            &lt;!&ndash;结果页&ndash;&gt;
+            <result name="success">/hhh.jsp</result>
+        </action>
+
+        <action name="hello2" class="com.lyd.struts2.HelloAction2">
+            &lt;!&ndash;结果页&ndash;&gt;
+            <result name="success">/hhh.jsp</result>
+        </action>
+
+    </package>-->
+
+    <!--引入另外一个配置文件-->
+    <include file="my_struts.xml"/>
+    <include file="method_struts.xml"/>
+    <include file="method2_struts.xml"/>
+
+
+</struts>

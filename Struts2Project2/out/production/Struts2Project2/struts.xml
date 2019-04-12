@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="struts" extends="struts-default">
+        <!--先到自己的action找到结果页 如果没有 再到全局来找-->
+        <global-results>
+            <result name="input">/index.jsp</result>
+        </global-results>
+
+        <action name="myform" class="com.lyd.myform.MyformAction">
+            <result name="success">/error.jsp</result>
+        </action>
+
+        <action name="myform2" class="com.lyd.myform.MyformAction2">
+            <result name="success">/res.jsp</result>
+        </action>
+
+        <action name="myform3" class="com.lyd.myform.MyformAction3">
+
+        </action>
+
+        <action name="myform4" class="com.lyd.myform.MyformAction4">
+        </action>
+
+        <action name="myform5" class="com.lyd.myform.MyformAction5">
+        </action>
+
+        <action name="myform6" class="com.lyd.myform.MyformAction6">
+        </action>
+
+        <action name="myform7" class="com.lyd.myform.MyformAction7">
+        </action>
+
+    </package>
+
+</struts>

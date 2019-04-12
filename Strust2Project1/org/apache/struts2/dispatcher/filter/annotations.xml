@@ -1,0 +1,5 @@
+<root>
+    <item name='org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter void init(FilterConfig) 0'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

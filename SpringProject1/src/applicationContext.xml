@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--demo1-->
+    <!--id：自己起的名称  class：为接口实现类的全路径-->
+    <bean id="userDao" class="com.lyd.demo1.UserDaoOracleImpl">
+        <!--
+            name：要注入属性的名称
+            value：注入（赋值）值
+            属性：要提供set方法
+        -->
+        <property name="name" value="lyd123456"/>
+    </bean>
+    <!--demo2-->
+    <bean id="person"
+          class="com.lyd.demo2.Person"
+          init-method="init"
+          destroy-method="destroy"
+          scope="prototype">
+
+        <property name="name" value="lydhhh"/>
+    </bean>
+
+    <!--导入另外创建的配置文件-->
+    <import resource="applicationContext2.xml"/>
+    <import resource="applicationContext3.xml"/>
+
+</beans>

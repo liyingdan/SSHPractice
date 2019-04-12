@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	        http://www.springframework.org/schema/beans/spring-beans.xsd
+	        http://www.springframework.org/schema/context
+	        http://www.springframework.org/schema/context/spring-context.xsd
+	        http://www.springframework.org/schema/aop
+	        http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/tx
+	        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--加载属性文件（数据库连接）-->
+    <!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="jdbc.properties"/>
+    </bean>-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <!--druid-->
+    <bean id="druid" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="DriverClassName" value="${jdbc.driverClass}"/>
+        <property name="Url" value="${jdbc.url}"/>
+        <property name="Username" value="${jdbc.username}"/>
+        <property name="Password" value="${jdbc.password}"/>
+    </bean>
+
+    <!--配置 accountDao-->
+    <bean id="accountDao" class="com.lyd.demo2.AccountDaoImpl">
+        <property name="dataSource" ref="druid"/>
+    </bean>
+    <!--AccountService-->
+    <bean id="accountService" class="com.lyd.demo2.AccountServiceImpl">
+        <property name="accountDao" ref="accountDao"/>
+    </bean>
+
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="druid"/>
+    </bean>
+
+    <!--导入之前记得写上上面的配置信息-->
+    <!--事务增强-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--把增加织入到对应的方法里-->
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(* com.lyd.demo2.AccountServiceImpl.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"/>
+    </aop:config>
+
+
+</beans>

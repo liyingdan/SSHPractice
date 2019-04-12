@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <!--name是类的全路径，知道操作的是哪一个表的类，table是数据库中的哪一个表-->
+    <class name="com.lyd.domain.Customer" table="customer">
+        <!--建立类属性哪一个是主键  还要跟数据库当中主键进行对应-->
+        <id name="cust_id" column="cust_id">
+            <generator class="native"/> <!--主键的生成策略-->
+        </id>
+        <!--建立类中的普通属性与数据库中字段进行关联-->
+        <property name="cust_name" column="cust_name"/>
+        <property name="cust_source" column="cust_source"/>
+        <property name="cust_industry" column="cust_industry"/>
+        <property name="cust_level" column="cust_level"/>
+        <property name="cust_phone"  column="cust_phone"/>
+        <property name="cust_mobile" column="cust_mobile"/>
+
+        <!--一对多    cascade是级联：一个属性关联了另一个属性，一个保存，两个保存,后面加上delete是级联删除的操作-->
+        <!--inverse="true"：放弃维护权-->
+        <set name="linkmens" cascade="save-update,delete" inverse="true"> <!--属性名称-->
+            <key column="link_cust_id"/> <!--外键-->
+            <one-to-many class="com.lyd.domain.Linkman"/>
+
+        </set>
+
+
+    </class>
+
+</hibernate-mapping>

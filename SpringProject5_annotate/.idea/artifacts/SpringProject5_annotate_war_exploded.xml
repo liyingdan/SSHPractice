@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SpringProject5_annotate:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpringProject5_annotate_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SpringProject5_annotate/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SpringProject5_annotate" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
